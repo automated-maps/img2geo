@@ -111,7 +111,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
-env/
+# env/
 venv/
 ENV/
 env.bak/
@@ -179,5 +179,7 @@ $RECYCLE.BIN/
 # tiff files 
 *.tiff
 *.tif
-
+data/
+*/*.tiff
+*/*.tif
 # End of https://www.toptal.com/developers/gitignore/api/windows,python,visualstudiocode

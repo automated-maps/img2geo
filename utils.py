@@ -55,8 +55,10 @@ def toGCP(coordinates, width, height, elevation):
 
 def quadKeyToip(qyadkey):
 	tile = mercantile.quadkey_to_tile(qyadkey)
-	[left,bottom,right,top] = mercantile.bounds(tile.x, tile.y, tile.z)
-	return [left,bottom,right,top]
+	west,south,east,north = mercantile.bounds(tile.x, tile.y, tile.z)
+	return "{},{},{},{}".format(south,north,west,east)
 
+# south,north,west,east
+# -6.2841796875,53.35710874569602,-6.282806396484375,53.35792835317533
 # bbox = quadKeyToip("0313103132223020121")
 # print(",".join([str(i) for i in bbox]))
