@@ -176,4 +176,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# tiff files 
+*.tiff
+*.tif
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,python,visualstudiocode
