@@ -51,14 +51,11 @@ def toGCP(coordinates, width, height, elevation):
 		lon,lat = projection_3857(arr[i]) 
 		gcp.append(gdal.GCP(lon, lat, elevation, arr2[i][0], arr2[i][1]))
 		# print("ground_coord_points.append(gdal.GCP({},{},0,{},{}))".format(lon, lat, arr2[i][0],arr2[i][1]))
+	print("{} ground coordinate points found!".format(len(gcp)))
 	return gcp
 
 def quadKeyToip(qyadkey):
 	tile = mercantile.quadkey_to_tile(qyadkey)
-	west,south,east,north = mercantile.bounds(tile.x, tile.y, tile.z)
-	return "{},{},{},{}".format(south,north,west,east)
-
-# south,north,west,east
-# -6.2841796875,53.35710874569602,-6.282806396484375,53.35792835317533
-# bbox = quadKeyToip("0313103132223020121")
-# print(",".join([str(i) for i in bbox]))
+	max_Longitude,min_Latitude,min_Longitude,max_Latitude = mercantile.bounds(tile.x, tile.y, tile.z)
+	print("Coordinates found: {},{},{},{}".format(min_Latitude, min_Longitude, max_Latitude, max_Longitude))
+	return "{},{},{},{}".format(min_Latitude, min_Longitude, max_Latitude, max_Longitude)
